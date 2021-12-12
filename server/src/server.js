@@ -1,5 +1,5 @@
 import { createServer } from "net";
-// import {checkUser} from "./checkUser";
+import {checkUser} from "./checkUser";
 import { cwd } from "./cwd";
 import { pwd } from "./pwd";
 import { help } from "./help";
@@ -22,13 +22,13 @@ export function launch(port) {
           socket.write(checkUser(args[0]));
           break;
         case "PASS":
-          socket.write(checkPassword(args));
+          socket.write(checkPassword(args[0]));
           break;
         case "SYST":
           socket.write("215 \r\n");
           break;
         case "CWD":
-          cwd(args);
+          socket.write(cwd(args));
         case "FEAT":
           socket.write("211 \r\n");
           break;
@@ -60,25 +60,3 @@ export function launch(port) {
   });
 }
 
-// const user = [
-//   { id: 1, username: "faiza", password: "faiza" }
-// ]
-
-// export function verifUserExist (username) {
-//   let result = false;
-//   for (const user of user) {
-//       if(user.username == username)
-//           result = true;
-//   }
-//   return result;
-// };
-
-// export function checkUser (args) {
-//   let result = ''
-//   if(verifUserExist(args))
-//       result = "220 User exists. \r\n";
-//   else
-//       result = "530 User doesn't exists.\r\n";
-
-//       return result;
-// };
