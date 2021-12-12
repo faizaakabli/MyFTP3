@@ -8,14 +8,12 @@ const client = createConnection({ port: 4242, host: 'localhost' }, () => {
   console.log("client connected.");
 });
 
-const r1 = createInterface ({
+const r1 = createInterface({
   input: process.stdin,
 });
 
 client.on("data", (data) => {
-  //console.log("data = " + data);
   const message = data.toString();
-  //console.log("message = " + message);
   console.log("Message received:", message);
 
   const [status, ...args] = message.trim().split(" ");
@@ -32,12 +30,12 @@ client.on("data", (data) => {
     });
   };
 
-  if(status == 221) {
+  if (status == 221) {
     currentCommand = "QUIT"
     client.destroy()
   }
 
 
-  // console.log("currentCommand = " + currentCommand);
-  // console.log("isAuthenticated = " + isAuthenticated);
+  //console.log("currentCommand = " + currentCommand);
+  //console.log("isAuthenticated = " + isAuthenticated);
 });

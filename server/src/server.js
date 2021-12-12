@@ -39,14 +39,13 @@ export function launch(port) {
           socket.write("200 \r\n");
           break;
         case "HELP":
-          socket.write(help());
+          socket.write(help(args));
           break;
-        //case "LIST":
-          //socket.write(  )
+        case "LIST":
+          list(socket);
+          break;
         case "QUIT":
           socket.write("221 closing connection \r\n");
-          socket.write(end());
-          socket.write(destroy());
         default:
           console.log("command not supported:", command, args);
       }
