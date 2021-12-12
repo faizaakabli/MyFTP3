@@ -7,7 +7,6 @@ import { checkPassword} from "./checkPassword";
 import { list } from "./list";
 
 
-
 export function launch(port) {
   const server = createServer((socket) => {
     console.log("new connection.");
@@ -28,7 +27,13 @@ export function launch(port) {
           socket.write("215 \r\n");
           break;
         case "CWD":
-          socket.write(cwd(args));
+          try{
+            process.chdir(args[0]);
+            socket.write(`250 New directory, ${process.cwd()} \r\n`);
+          } catch(err) {
+              socket.write(`non-existent file, try another path \r\n`);
+          }
+          break;
         case "FEAT":
           socket.write("211 \r\n");
           break;
@@ -39,7 +44,7 @@ export function launch(port) {
           socket.write("200 \r\n");
           break;
         case "HELP":
-          socket.write(help(args));
+          socket.write("200 - HELP!");
           break;
         case "LIST":
           list(socket);
