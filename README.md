@@ -4,7 +4,6 @@
 
 * [Rules](#rules)
 * [Overview](#overview)
-* [Story](#story)
 * [Credits](#credits)
 
 ## <a name='overview'>Rules</a>
