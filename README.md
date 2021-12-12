@@ -9,11 +9,13 @@
 ## <a name='overview'>Rules</a>
 
 * I create a git repository named `myFtp`
-* * I create a file called `.author` with your username followed by a newline:
+* I create a file called `.author` with my name:
 
 ```sh
-~/codingbad/network/myFtp ❯❯❯ cat -e .author
-faiza$
+{
+    "firstname": "Faïza",
+    "lastname": "AKABLI"
+}
 ```
 
 ## <a name='overview'> Overview</a>
