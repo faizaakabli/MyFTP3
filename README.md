@@ -1,5 +1,7 @@
+<div id="top"></div>
+
 # MyFTP
- 
+
 ## <a name='TOC'>Summary</a>
 
 * [Rules](#rules)
@@ -8,7 +10,7 @@
 
 ## <a name='overview'>Rules</a>
 
-* I create a git repository named `myFtp`
+* I create a git repository named `myFTP` with GITHub Desktop
 * I create a file called `.author` with my name:
 
 ```sh
@@ -17,11 +19,17 @@
     "lastname": "AKABLI"
 }
 ```
+* I create a FTP server and a client. The client must handle commands.
+* In a fristime I used FaZilla 
+* I used Javascript 
+
+
+<p align="right"><a href="#top">back to top</a></p>
 
 ## <a name='overview'> Overview</a>
 
 The purpose of this challenge is to create an FTP client and server.
-I use the file RFC959
+I use the file RFC959 https://datatracker.ietf.org/doc/rfc959/
 
 The client must handle the following commands:
 
@@ -37,4 +45,7 @@ The client must handle the following commands:
 
 ## <a name='credits'>Credits</a>
 
-Faiza Akabli.
+* Faiza Akabli student at EFREI PARIS
+* Contact me on Linkedin https://www.linkedin.com/in/fa%C3%AFza-akabli-b8544117b/
+
+<p align="right"><a href="#top">back to top</a></p>
