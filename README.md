@@ -43,7 +43,7 @@ The client must handle the following commands:
 * `HELP`: send helpful information to the client
 * `QUIT`: close the connection and stop the program
 
-#USER 
+#  USER 
 
 ```sh
 const user = [
@@ -81,7 +81,7 @@ USER Faiza
 Message received: 530 User doesn't exists. 
 ```
 
-#PASS
+# PASS
 
 ```sh
 const user = [
@@ -119,7 +119,7 @@ PASS Faiza
 Message received: 530 Wrong Password. 
 ```
 
-#LIST
+# LIST
 
 ```sh
 export function list(socket) {
@@ -139,7 +139,7 @@ package.json
 src
 ```
 
-#CWD
+# CWD
 
 ````sh
 try{
@@ -159,7 +159,7 @@ CWD C:\Users\Faïza Akabli\Documents\EFREI B3\my-ftp\myFTP\asset
 Message received: 250 New directory, C:\Users\Faïza 
 ````
 
-#PWD
+# PWD
 
 ````sh
 export function pwd(){
@@ -171,6 +171,56 @@ export function pwd(){
 ````sh
 PWD
 Message received: C:\Users\Faïza
+````
+
+# QUIT
+
+````sh
+socket.write("221 closing connection \r\n");
+socket.destroy();
+````
+
+````sh
+QUIT
+Message received: 221 closing connection 
+````
+
+# HELP
+
+````sh
+socket.write(`214, \n "HELP":\n
+            USER <username>: check if the user exist\n
+            PASS <password>: authenticate the user with a password\n
+            LIST: list the current directory of the server\n
+            CWD <directory>: change the current directory of the server\n
+            RETR <filename>: transfer a copy of the file FILE from the server to the client\n
+            STOR <filename>: transfer a copy of the file FILE from the client to the server\n
+            PWD: display the name of the current directory of the server\n
+            HELP: send helpful information to the client\n
+            QUIT: close the connection and stop the program\n
+            `);
+````
+
+````sh
+ "HELP":
+
+            USER <username>: check if the user exist
+
+            PASS <password>: authenticate the user with a password
+
+            LIST: list the current directory of the server
+
+            CWD <directory>: change the current directory of the server
+
+            RETR <filename>: transfer a copy of the file FILE from the server to the client    
+
+            STOR <filename>: transfer a copy of the file FILE from the client to the server    
+
+            PWD: display the name of the current directory of the server
+
+            HELP: send helpful information to the client
+
+            QUIT: close the connection and stop the program
 ````
 ## <a name='credits'>Credits</a>
 
