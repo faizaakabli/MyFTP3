@@ -43,6 +43,9 @@ The client must handle the following commands:
 * `HELP`: send helpful information to the client
 * `QUIT`: close the connection and stop the program
 
+
+<p align="right"><a href="#top">back to top</a></p>
+
 #  USER 
 
 ```sh
@@ -80,6 +83,8 @@ Test with wrong user
 USER Faiza
 Message received: 530 User doesn't exists. 
 ```
+
+<p align="right"><a href="#top">back to top</a></p>
 
 # PASS
 
@@ -119,6 +124,10 @@ PASS Faiza
 Message received: 530 Wrong Password. 
 ```
 
+
+
+<p align="right"><a href="#top">back to top</a></p>
+
 # LIST
 
 ```sh
@@ -138,6 +147,10 @@ package-lock.json
 package.json
 src
 ```
+
+
+
+<p align="right"><a href="#top">back to top</a></p>
 
 # CWD
 
@@ -159,6 +172,9 @@ CWD C:\Users\Faïza Akabli\Documents\EFREI B3\my-ftp\myFTP\asset
 Message received: 250 New directory, C:\Users\Faïza 
 ````
 
+<p align="right"><a href="#top">back to top</a></p>
+
+
 # PWD
 
 ````sh
@@ -173,6 +189,8 @@ PWD
 Message received: C:\Users\Faïza
 ````
 
+<p align="right"><a href="#top">back to top</a></p>
+
 # QUIT
 
 ````sh
@@ -184,6 +202,8 @@ socket.destroy();
 QUIT
 Message received: 221 closing connection 
 ````
+
+<p align="right"><a href="#top">back to top</a></p>
 
 # HELP
 
