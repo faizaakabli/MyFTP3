@@ -6,6 +6,14 @@
 
 * [Rules](#rules)
 * [Overview](#overview)
+    * [USER](#USER)
+    * [PASS](#PASS)
+    * [LIST](#LIST)
+    * [CWD](#CWD)
+    * [PWD](#PWD)
+    * [QUIT](#QUIT)
+    * [HELP](#HELP)
+    
 * [Credits](#credits)
 
 ## <a name='overview'>Rules</a>
@@ -22,6 +30,16 @@
 * I create a FTP server and a client. The client must handle commands.
 * In a fristime I used FaZilla 
 * I used Javascript
+* I install babel and nodemon
+````sh
+ npm i nodemon @babel/core @babel/preset-env @babel/node @babel/cli
+ Npm install nodemon
+ ````
+ * I create file nodemon.json and package.json
+ * For run the code I used
+ ````sh
+ npm run dev
+ ````
 
 
 <p align="right"><a href="#top">back to top</a></p>
@@ -43,10 +61,9 @@ The client must handle the following commands:
 * `HELP`: send helpful information to the client
 * `QUIT`: close the connection and stop the program
 
-
 <p align="right"><a href="#top">back to top</a></p>
 
-#  USER 
+### <a name='USER'>USER</a>
 
 ```sh
 const user = [
@@ -86,7 +103,7 @@ Message received: 530 User doesn't exists.
 
 <p align="right"><a href="#top">back to top</a></p>
 
-# PASS
+### <a name='PASS'>PASS</a>
 
 ```sh
 const user = [
@@ -124,11 +141,9 @@ PASS Faiza
 Message received: 530 Wrong Password. 
 ```
 
-
-
 <p align="right"><a href="#top">back to top</a></p>
 
-# LIST
+### <a name='LIST'>LIST</a>
 
 ```sh
 export function list(socket) {
@@ -148,11 +163,9 @@ package.json
 src
 ```
 
-
-
 <p align="right"><a href="#top">back to top</a></p>
 
-# CWD
+### <a name='CWD'>CWD</a>
 
 ````sh
 try{
@@ -174,8 +187,7 @@ Message received: 250 New directory, C:\Users\Faïza
 
 <p align="right"><a href="#top">back to top</a></p>
 
-
-# PWD
+### <a name='PWD'>PWD</a>
 
 ````sh
 export function pwd(){
@@ -191,7 +203,7 @@ Message received: C:\Users\Faïza
 
 <p align="right"><a href="#top">back to top</a></p>
 
-# QUIT
+### <a name='QUIT'>QUIT</a>
 
 ````sh
 socket.write("221 closing connection \r\n");
@@ -205,7 +217,7 @@ Message received: 221 closing connection
 
 <p align="right"><a href="#top">back to top</a></p>
 
-# HELP
+### <a name='HELP'>HELP</a>
 
 ````sh
 socket.write(`214, \n "HELP":\n
