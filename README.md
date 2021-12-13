@@ -21,7 +21,7 @@
 ```
 * I create a FTP server and a client. The client must handle commands.
 * In a fristime I used FaZilla 
-* I used Javascript 
+* I used Javascript
 
 
 <p align="right"><a href="#top">back to top</a></p>
@@ -43,6 +43,135 @@ The client must handle the following commands:
 * `HELP`: send helpful information to the client
 * `QUIT`: close the connection and stop the program
 
+#USER 
+
+```sh
+const user = [
+  { id: 1, username: "faiza", password: "faiza" }
+]
+
+export function verifUser(username) {
+  let result = false;
+  for (const users of user) {
+      if(users.username == username)
+          result = true;
+  }
+  return result;
+};
+export function verifUserExist(args) {
+  let result = ''
+  if(verifUser(args))
+      result = "220 User exists. \r\n";
+  else
+      result = "530 User doesn't exists.\r\n";
+
+      return result;
+};
+```
+Test with true user
+
+```sh
+USER faiza
+Message received: 220 User exists. 
+```
+Test with wrong user
+
+```sh
+USER Faiza
+Message received: 530 User doesn't exists. 
+```
+
+#PASS
+
+```sh
+const user = [
+  { id: 1, username: "faiza", password: "faiza" }
+]
+
+export function checkPassword (password) {
+  let result = false;
+  for (const user of user) {
+      if(user.password == password)
+          result = true;
+  }
+  return result;
+};
+
+export function VerifPasswordExist(args) {
+  let result = ''
+  if(checkPassword(args))
+      result = "230 Password Authentication is successfull. \r\n";
+  else
+      result = "530 Wrong Password.\r\n";
+
+      return result;
+};
+```
+Test with true password
+
+```sh
+PASS faiza
+Message received: 230 Password Authentication is successfull. 
+```
+Test with wrong password
+```sh
+PASS Faiza
+Message received: 530 Wrong Password. 
+```
+
+#LIST
+
+```sh
+export function list(socket) {
+    fs.readdir(process.cwd(), (err, files) => {
+      let list="";
+      files.forEach(file=>{list+=file+"\r\n"})
+      socket.write(list)  
+    })      
+};
+```
+```sh
+Message received: .babelrc.js
+nodemon.json
+node_modules
+package-lock.json
+package.json
+src
+```
+
+#CWD
+
+````sh
+try{
+      process.chdir(args[0]);
+      socket.write(`250 New directory, ${process.cwd()} \r\n`);
+    } catch(err) {
+       socket.write(`non-existent file, try another path \r\n`);
+       }
+````
+
+```sh
+CWD server
+Message received: non-existent file, try another path 
+````
+````sh
+CWD C:\Users\Faïza Akabli\Documents\EFREI B3\my-ftp\myFTP\asset
+Message received: 250 New directory, C:\Users\Faïza 
+````
+
+#PWD
+
+````sh
+export function pwd(){
+    console.log(process.cwd());
+    return(process.cwd());
+}
+````
+
+````sh
+PWD
+Message received: C:\Users\Faïza
+````
 ## <a name='credits'>Credits</a>
 
 * Faiza Akabli student at EFREI PARIS
